@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XYZ Bracelet</string>
+    <string name="lbl_titulo">XYZ Enterprise</string>
+    <string name="cuero">Leather</string>
+    <string name="cuerda">Rope</string>
+    <string name="martillo">Hammer</string>
+    <string name="ancla">Anchor</string>
+    <string name="oro">Gold</string>
+    <string name="oro_rosado">Rose Gold</string>
+    <string name="plata">Silver</string>
+    <string name="niquel">Nickel</string>
+    <string name="b_oro">Baht Gold</string>
+    <string name="txtCantidad">Lot</string>
+    <string name="moneda">Select Currency</string>
+    <string name="cop">COP</string>
+    <string name="usd">USD</string>
+    <string name="btnCalcular">Price to Pay</string>
+</resources>

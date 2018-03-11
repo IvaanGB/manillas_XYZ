@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Manillas XYZ</string>
+    <string name="lbl_titulo">Empresa XYZ</string>
+
+    <string name="cuero">Cuero</string>
+    <string name="cuerda">Cuerda</string>
+    <string-array name="materiales">
+        <item>@string/cuero</item>
+        <item>@string/cuerda</item>
+    </string-array>
+
+    <string name="martillo">Martillo</string>
+    <string name="ancla">Ancla</string>
+    <string-array name="dije">
+        <item>@string/martillo</item>
+        <item>@string/ancla</item>
+    </string-array>
+
+    <string name="oro">Oro</string>
+    <string name="oro_rosado">Oro Rosado</string>
+    <string name="b_oro">Baño de Oro</string>
+    <string name="plata">Plata</string>
+    <string name="niquel">Níquel</string>
+    <string-array name="tipo">
+        <item>@string/oro</item>
+        <item>@string/oro_rosado</item>
+        <item>@string/b_oro</item>
+        <item>@string/plata</item>
+        <item>@string/niquel</item>
+    </string-array>
+
+    <string name="txtCantidad">Cantidad</string>
+    <string name="moneda">Seleccione Moneda</string>
+    <string name="cop">COP</string>
+    <string name="usd">USD</string>
+    <string name="btnCalcular">Valor a Pagar</string>
+</resources>
