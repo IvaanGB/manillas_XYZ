@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="manillas_xyz.com.manillas_xyz.MainActivity">
+        tools:context="manillas_xyz.com.manillas_xyz.Principal">
 
         <TextView
             android:id="@+id/lbl_titulo"
@@ -62,9 +62,17 @@
         android:orientation="horizontal">
 
         <RadioGroup
+            android:id="@+id/rgMoneda"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/rdUSD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/usd" />
 
             <RadioButton
                 android:id="@+id/rdCOP"
@@ -73,12 +81,6 @@
                 android:layout_weight="1"
                 android:text="@string/cop" />
 
-            <RadioButton
-                android:id="@+id/rdUSD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/usd" />
         </RadioGroup>
 
     </LinearLayout>
@@ -87,6 +89,7 @@
         android:id="@+id/btnCalcular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="calcular"
         android:text="@string/btnCalcular" />
 
     <TextView

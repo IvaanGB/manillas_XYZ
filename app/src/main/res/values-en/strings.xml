@@ -16,4 +16,12 @@
     <string name="cop">COP</string>
     <string name="usd">USD</string>
     <string name="btnCalcular">Price to Pay</string>
+    <string name="spnMaterial">Choose a material</string>
+    <string name="errorMaterial">Must choose a material</string>
+    <string name="errorCantidad">Enter a valid amount</string>
+    <string name="spnDije">Choose a pendant</string>
+    <string name="errorDije">Must choose a pendant</string>
+    <string name="spnTipo">Choose a type</string>
+    <string name="errorTipo">Must choose a type</string>
+    <string name="errorMoneda">Must choose a currency</string>
 </resources>

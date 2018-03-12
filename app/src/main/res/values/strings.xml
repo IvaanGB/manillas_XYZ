@@ -2,29 +2,41 @@
     <string name="app_name">Manillas XYZ</string>
     <string name="lbl_titulo">Empresa XYZ</string>
 
+    <string name="spnMaterial">Escoge un Material</string>
+    <string name="errorMaterial">Debe escoger Material</string>
     <string name="cuero">Cuero</string>
     <string name="cuerda">Cuerda</string>
     <string-array name="materiales">
+        <item>@string/spnMaterial</item>
         <item>@string/cuero</item>
         <item>@string/cuerda</item>
     </string-array>
 
+    <string name="errorCantidad">Introduzca Cantidad Válida</string>
+
+    <string name="spnDije">Escoge un Dije</string>
+    <string name="errorDije">Debe escoger Dije</string>
     <string name="martillo">Martillo</string>
     <string name="ancla">Ancla</string>
     <string-array name="dije">
+        <item>@string/spnDije</item>
         <item>@string/martillo</item>
         <item>@string/ancla</item>
     </string-array>
 
+    <string name="errorMoneda">Debe escoger un tipo de moneda</string>
+
+    <string name="spnTipo">Escoge Tipo</string>
+    <string name="errorTipo">Debe escoger Tipo</string>
     <string name="oro">Oro</string>
     <string name="oro_rosado">Oro Rosado</string>
     <string name="b_oro">Baño de Oro</string>
     <string name="plata">Plata</string>
     <string name="niquel">Níquel</string>
     <string-array name="tipo">
+        <item>@string/spnTipo</item>
         <item>@string/oro</item>
         <item>@string/oro_rosado</item>
-        <item>@string/b_oro</item>
         <item>@string/plata</item>
         <item>@string/niquel</item>
     </string-array>
