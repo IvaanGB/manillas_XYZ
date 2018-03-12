@@ -24,4 +24,5 @@
     <string name="spnTipo">Choose a type</string>
     <string name="errorTipo">Must choose a type</string>
     <string name="errorMoneda">Must choose a currency</string>
+    <string name="total">Total to pay: $</string>
 </resources>
