@@ -61,34 +61,30 @@ public class Principal extends AppCompatActivity {
         tipo.setAdapter(tip);
     }
 
-    public TextView errorSpinner(Spinner mySpinner, String error) {
-        TextView errorText = (TextView) mySpinner.getSelectedView();
+    public TextView errorSpinner(Spinner spinner, String error) {
+        TextView errorText = (TextView) spinner.getSelectedView();
         errorText.setError("");
         errorText.setTextColor(Color.RED);
         errorText.setText(error);
         return errorText;
     }
 
+    
+
     public boolean validar() {
-        if (material.getSelectedItemPosition() == 0) {
-            material.requestFocus();
-            errorSpinner(material, recursos.getString(R.string.errorMaterial));
+        if (!metodos.validarSpinner(material, recursos.getString(R.string.errorMaterial))){
             return false;
         }
 
-        if (dije.getSelectedItemPosition() == 0) {
-            dije.requestFocus();
-            errorSpinner(dije, recursos.getString(R.string.errorDije));
+        if (!metodos.validarSpinner(dije, recursos.getString(R.string.errorDije))){
             return false;
         }
 
-        if (tipo.getSelectedItemPosition() == 0) {
-            tipo.requestFocus();
-            errorSpinner(tipo, recursos.getString(R.string.errorTipo));
+        if (!metodos.validarSpinner(tipo, recursos.getString(R.string.errorTipo))){
             return false;
         }
 
-        if (cantidad.getText().toString().isEmpty()) {
+        if (cantidad.getText().toString().isEmpty() || Integer.parseInt(cantidad.getText().toString())==0) {
             cantidad.requestFocus();
             cantidad.setError(recursos.getString(R.string.errorCantidad));
             return false;
@@ -102,91 +98,43 @@ public class Principal extends AppCompatActivity {
         return true;
     }
 
+    public int precioAPagar(int posMaterial, int posDije, int posTipo, int cant){
 
-    public int preciosCuero() {
-        int precios = 0;
-        if (dije.getSelectedItemPosition() == 1) {
-            if (tipo.getSelectedItemPosition() == 1 || tipo.getSelectedItemPosition() == 2) {
-                precios = 100;
-            }
-            if (tipo.getSelectedItemPosition() == 3) {
-                precios = 80;
-            }
-            if (tipo.getSelectedItemPosition() == 4) {
-                precios = 70;
-            }
+        int totalAPagar=0;
+        int precio=0;
+
+        if (posMaterial==1){
+            precio=metodos.preciosCuero(posDije, posTipo);
+            totalAPagar=(metodos.valorAPagar(precio, cant));
         }
 
-        if (dije.getSelectedItemPosition() == 2) {
-            if (tipo.getSelectedItemPosition() == 1 || tipo.getSelectedItemPosition() == 2) {
-                precios = 120;
-            }
-            if (tipo.getSelectedItemPosition() == 3) {
-                precios = 100;
-            }
-            if (tipo.getSelectedItemPosition() == 4) {
-                precios = 90;
-            }
+        if (posMaterial==2){
+            precio=metodos.preciosCuerda(posDije, posTipo);
+            totalAPagar=(metodos.valorAPagar(precio, cant));
         }
-        return precios;
+
+        return totalAPagar;
     }
-
-    public int preciosCuerda() {
-        int precios = 0;
-        if (dije.getSelectedItemPosition() == 1) {
-            if (tipo.getSelectedItemPosition() == 1 || tipo.getSelectedItemPosition() == 2) {
-                precios = 90;
-            }
-            if (tipo.getSelectedItemPosition() == 3) {
-                precios = 70;
-            }
-            if (tipo.getSelectedItemPosition() == 4) {
-                precios = 50;
-            }
-        }
-
-        if (dije.getSelectedItemPosition() == 2) {
-            if (tipo.getSelectedItemPosition() == 1 || tipo.getSelectedItemPosition() == 2) {
-                precios = 110;
-            }
-            if (tipo.getSelectedItemPosition() == 3) {
-                precios = 90;
-            }
-            if (tipo.getSelectedItemPosition() == 4) {
-                precios = 80;
-            }
-        }
-        return precios;
-    }
-
 
     public void boton(View v) {
         int total = 0;
 
         if (validar()) {
             int cant = Integer.parseInt(cantidad.getText().toString());
+            int posicionMaterial=material.getSelectedItemPosition();
+            int posicionDije=dije.getSelectedItemPosition();
+            int posicionTipo=tipo.getSelectedItemPosition();
             cop.setError(null);
 
             if (usd.isChecked()) {
-                if (material.getSelectedItemPosition() == 1) {
-                    total = metodos.valorAPagar(preciosCuero(), cant);
-                }
-                if (material.getSelectedItemPosition() == 2) {
-                    total = metodos.valorAPagar(preciosCuerda(), cant);
-                }
+                total = precioAPagar(posicionMaterial, posicionDije, posicionTipo, cant);
                 resultado.setText(recursos.getString(R.string.total) + total + " USD");
             }
 
-
             if (cop.isChecked()) {
-                if (material.getSelectedItemPosition() == 1) {
-                    total = metodos.valorCop(preciosCuero(), cant);
+                    total = metodos.valorCop(precioAPagar(posicionMaterial, posicionDije, posicionTipo, cant));
+                    resultado.setText(recursos.getString(R.string.total) + total + " COP");
                 }
-                if (material.getSelectedItemPosition() == 2) {
-                    total = metodos.valorCop(preciosCuerda(), cant);
-                }
-                resultado.setText(recursos.getString(R.string.total) + total + " COP");
             }
         }
-    }
 }
